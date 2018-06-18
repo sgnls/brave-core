@@ -1,5 +1,5 @@
 diff --git a/chrome/BUILD.gn b/chrome/BUILD.gn
-index 4304cc82494f57b7bbc4d1f3dff0fab96e30aef3..5e9082000a990dfedd2d99c869cc1cc3e9d2a0c4 100644
+index 4304cc82494f57b7bbc4d1f3dff0fab96e30aef3..9f8da3fa8b12cfbca9cf1505aa63e1df8f846be5 100644
 --- a/chrome/BUILD.gn
 +++ b/chrome/BUILD.gn
 @@ -183,6 +183,14 @@ if (!is_android && !is_mac) {
@@ -157,7 +157,15 @@ index 4304cc82494f57b7bbc4d1f3dff0fab96e30aef3..5e9082000a990dfedd2d99c869cc1cc3
      ]
      output = "$target_gen_dir/chrome_exe_version.rc"
    }
-@@ -1806,6 +1857,8 @@ if (is_android) {
+@@ -1697,6 +1748,7 @@ repack("browser_tests_pak") {
+ 
+ group("strings") {
+   public_deps = [
++    "//brave/app:brave_generated_resources_grit",
+     "//chrome/app:chromium_strings",
+     "//chrome/app:generated_resources",
+     "//chrome/app:google_chrome_strings",
+@@ -1806,6 +1858,8 @@ if (is_android) {
        "app/android/chrome_main_delegate_android.h",
        "app/chrome_main_delegate.cc",
        "app/chrome_main_delegate.h",
@@ -166,7 +174,7 @@ index 4304cc82494f57b7bbc4d1f3dff0fab96e30aef3..5e9082000a990dfedd2d99c869cc1cc3
      ]
  
      include_dirs = [ android_ndk_include_dir ]
-@@ -1854,7 +1907,7 @@ if (enable_resource_whitelist_generation) {
+@@ -1854,7 +1908,7 @@ if (enable_resource_whitelist_generation) {
  if (is_linux) {
    if (is_official_build) {
      extract_symbols("linux") {

@@ -77,6 +77,13 @@
       <message name="IDS_CHROME_IMPORTER_LOCK_TEXT" desc="The message to be displayed in the Chrome importer lock dialog">
 	To finish importing, close all Chrome windows.
       </message>
+      <!-- Autoplay -->
+      <message name="IDS_AUTOPLAY_PERMISSION_FRAGMENT" desc="Permission request shown if the user is visiting a site that wants to autoplay media. Follows a prompt: 'This site would like to:'">
+        Autoplay media
+      </message>
+      <message name="IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY" desc="Label for the toggle enabling autoplay.">
+        Autoplay
+      </message>
     </messages>
     <includes>
       <include name="IDR_BRAVE_TAG_SERVICES_POLYFILL" file="resources/js/tag_services_polyfill.js" type="BINDATA" />

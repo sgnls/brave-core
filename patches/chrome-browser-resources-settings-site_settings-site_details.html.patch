@@ -1,0 +1,16 @@
+diff --git a/chrome/browser/resources/settings/site_settings/site_details.html b/chrome/browser/resources/settings/site_settings/site_details.html
+index 1a8a1bf055e2774c0f57a3c609aa9482d4c7b778..615f99b2c794e7e2eefca388f2680d65ce6100fa 100644
+--- a/chrome/browser/resources/settings/site_settings/site_details.html
++++ b/chrome/browser/resources/settings/site_settings/site_details.html
+@@ -148,6 +148,11 @@
+           icon="cr:extension" id="unsandboxedPlugins"
+           label="$i18n{siteSettingsUnsandboxedPlugins}">
+       </site-details-permission>
++      <site-details-permission
++          category="{{ContentSettingsTypes.AUTOPLAY}}"
++          icon="settings:autoplay" id="autoplay"
++          label="$i18n{siteSettingsAutoplay}">
++      </site-details-permission>
+ <if expr="chromeos">
+       <site-details-permission
+           category="{{ContentSettingsTypes.PROTECTED_CONTENT}}"

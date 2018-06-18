@@ -1,0 +1,24 @@
+diff --git a/chrome/browser/permissions/permission_request_impl.cc b/chrome/browser/permissions/permission_request_impl.cc
+index a716bb8332e0da0da2ecb3523efb5cffab776157..774afdb662b10708b47026ba7186258340c73d3f 100644
+--- a/chrome/browser/permissions/permission_request_impl.cc
++++ b/chrome/browser/permissions/permission_request_impl.cc
+@@ -4,6 +4,9 @@
+ 
+ #include "chrome/browser/permissions/permission_request_impl.h"
+ 
++#if defined(BRAVE_CHROMIUM_BUILD)
++#include "brave/grit/brave_generated_resources.h"
++#endif
+ #include "build/build_config.h"
+ #include "chrome/browser/permissions/permission_util.h"
+ #include "chrome/grit/generated_resources.h"
+@@ -159,6 +162,9 @@ base::string16 PermissionRequestImpl::GetMessageTextFragment() const {
+     case CONTENT_SETTINGS_TYPE_CLIPBOARD_READ:
+       message_id = IDS_CLIPBOARD_PERMISSION_FRAGMENT;
+       break;
++    case CONTENT_SETTINGS_TYPE_AUTOPLAY:
++      message_id = IDS_AUTOPLAY_PERMISSION_FRAGMENT;
++      break;
+     default:
+       NOTREACHED();
+       return base::string16();
