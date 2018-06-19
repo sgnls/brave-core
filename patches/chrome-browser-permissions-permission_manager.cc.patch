@@ -1,0 +1,33 @@
+diff --git a/chrome/browser/permissions/permission_manager.cc b/chrome/browser/permissions/permission_manager.cc
+index af0c4c0e74fbcf78f02fe112f19724260dda456a..6d2589d3b8dc173c854e2cec4c6d9539909ab172 100644
+--- a/chrome/browser/permissions/permission_manager.cc
++++ b/chrome/browser/permissions/permission_manager.cc
+@@ -9,6 +9,9 @@
+ 
+ #include "base/callback.h"
+ #include "base/feature_list.h"
++#if defined(BRAVE_CHROMIUM_BUILD)
++#include "brave/browser/autoplay/autoplay_permission_context.h"
++#endif
+ #include "build/build_config.h"
+ #include "chrome/browser/accessibility/accessibility_permission_context.h"
+ #include "chrome/browser/background_sync/background_sync_permission_context.h"
+@@ -121,6 +124,8 @@ ContentSettingsType PermissionTypeToContentSetting(PermissionType permission) {
+       return CONTENT_SETTINGS_TYPE_CLIPBOARD_WRITE;
+     case PermissionType::PAYMENT_HANDLER:
+       return CONTENT_SETTINGS_TYPE_PAYMENT_HANDLER;
++    case PermissionType::AUTOPLAY:
++      return CONTENT_SETTINGS_TYPE_AUTOPLAY;
+     case PermissionType::NUM:
+       // This will hit the NOTREACHED below.
+       break;
+@@ -304,6 +309,9 @@ PermissionManager::PermissionManager(Profile* profile) : profile_(profile) {
+       std::make_unique<ClipboardWritePermissionContext>(profile);
+   permission_contexts_[CONTENT_SETTINGS_TYPE_PAYMENT_HANDLER] =
+       std::make_unique<payments::PaymentHandlerPermissionContext>(profile);
++  permission_contexts_[CONTENT_SETTINGS_TYPE_AUTOPLAY] =
++      std::make_unique<AutoplayPermissionContext>(profile);
++
+ }
+ 
+ PermissionManager::~PermissionManager() {

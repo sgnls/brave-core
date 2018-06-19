@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/permissions/permission_request_impl.cc b/chrome/browser/permissions/permission_request_impl.cc
-index a716bb8332e0da0da2ecb3523efb5cffab776157..774afdb662b10708b47026ba7186258340c73d3f 100644
+index a716bb8332e0da0da2ecb3523efb5cffab776157..da11ee40d0360e952a26845e8782598c06362806 100644
 --- a/chrome/browser/permissions/permission_request_impl.cc
 +++ b/chrome/browser/permissions/permission_request_impl.cc
 @@ -4,6 +4,9 @@
@@ -12,7 +12,16 @@ index a716bb8332e0da0da2ecb3523efb5cffab776157..774afdb662b10708b47026ba71862583
  #include "build/build_config.h"
  #include "chrome/browser/permissions/permission_util.h"
  #include "chrome/grit/generated_resources.h"
-@@ -159,6 +162,9 @@ base::string16 PermissionRequestImpl::GetMessageTextFragment() const {
+@@ -81,6 +84,8 @@ PermissionRequest::IconId PermissionRequestImpl::GetIconId() const {
+       return vector_icons::kAccessibilityIcon;
+     case CONTENT_SETTINGS_TYPE_CLIPBOARD_READ:
+       return kContentPasteIcon;
++    case CONTENT_SETTINGS_TYPE_AUTOPLAY:
++      return kExtensionIcon;
+     default:
+       NOTREACHED();
+       return kExtensionIcon;
+@@ -159,6 +164,9 @@ base::string16 PermissionRequestImpl::GetMessageTextFragment() const {
      case CONTENT_SETTINGS_TYPE_CLIPBOARD_READ:
        message_id = IDS_CLIPBOARD_PERMISSION_FRAGMENT;
        break;
