@@ -1,0 +1,13 @@
+diff --git a/chrome/browser/resources/settings/route.js b/chrome/browser/resources/settings/route.js
+index 5191116d07b7d2b625a503e81f0850bfa2a896d6..fdaf2014d823bdbd2f00253832f31187d06e0d3d 100644
+--- a/chrome/browser/resources/settings/route.js
++++ b/chrome/browser/resources/settings/route.js
+@@ -328,6 +328,8 @@ cr.define('settings', function() {
+       r.SITE_SETTINGS_MICROPHONE = r.SITE_SETTINGS.createChild('microphone');
+       r.SITE_SETTINGS_NOTIFICATIONS =
+           r.SITE_SETTINGS.createChild('notifications');
++      r.SITE_SETTINGS_AUTOPLAY =
++          r.SITE_SETTINGS.createChild('autoplay');
+       r.SITE_SETTINGS_FLASH = r.SITE_SETTINGS.createChild('flash');
+       r.SITE_SETTINGS_POPUPS = r.SITE_SETTINGS.createChild('popups');
+       r.SITE_SETTINGS_UNSANDBOXED_PLUGINS =

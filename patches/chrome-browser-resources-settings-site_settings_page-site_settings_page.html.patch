@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/resources/settings/site_settings_page/site_settings_page.html b/chrome/browser/resources/settings/site_settings_page/site_settings_page.html
-index 32d1f2a9a7acd05e027ae146deaa8721192ed557..9bef5eae9ebfa27f0517b247332ef3c197804f37 100644
+index 32d1f2a9a7acd05e027ae146deaa8721192ed557..6baf532f3d817442248d0e4b8d60033aae49f77f 100644
 --- a/chrome/browser/resources/settings/site_settings_page/site_settings_page.html
 +++ b/chrome/browser/resources/settings/site_settings_page/site_settings_page.html
 @@ -144,6 +144,25 @@
@@ -10,13 +10,13 @@ index 32d1f2a9a7acd05e027ae146deaa8721192ed557..9bef5eae9ebfa27f0517b247332ef3c1
 +        category$="[[ContentSettingsTypes.AUTOPLAY]]"
 +        data-route="SITE_SETTINGS_AUTOPLAY" on-click="onTapNavigate_"
 +        actionable>
-+      <iron-icon icon="settings:autoplay"></iron-icon>
++      <iron-icon icon="cr:extension"></iron-icon>
 +      <div class="middle">
 +        $i18n{siteSettingsAutoplay}
 +        <div class="secondary" id="notificationsSecondary">
 +          [[defaultSettingLabel_(
 +              default_.autoplay,
-+              '$i18nPolymer{siteSettingsAskBeforeSending}',
++              '$i18nPolymer{siteSettingsAutoplayAsk}',
 +              '$i18nPolymer{siteSettingsBlocked}')]]
 +        </div>
 +      </div>

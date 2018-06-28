@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/ui/webui/settings/md_settings_localized_strings_provider.cc b/chrome/browser/ui/webui/settings/md_settings_localized_strings_provider.cc
-index 6ee8837135be6b1f9389827dac26ecfa5a2a4fd6..247bf0b1411bc5d6a14c3fff149e9fe5a91efbb9 100644
+index 6ee8837135be6b1f9389827dac26ecfa5a2a4fd6..15e5a7cacbd99d1691fec84ff337e3ec526022e5 100644
 --- a/chrome/browser/ui/webui/settings/md_settings_localized_strings_provider.cc
 +++ b/chrome/browser/ui/webui/settings/md_settings_localized_strings_provider.cc
 @@ -10,6 +10,9 @@
@@ -20,12 +20,18 @@ index 6ee8837135be6b1f9389827dac26ecfa5a2a4fd6..247bf0b1411bc5d6a14c3fff149e9fe5
      {"importChooseFile", IDS_SETTINGS_IMPORT_CHOOSE_FILE},
      {"importCommit", IDS_SETTINGS_IMPORT_COMMIT},
      {"noProfileFound", IDS_SETTINGS_IMPORT_NO_PROFILE_FOUND},
-@@ -2080,6 +2084,8 @@ void AddSiteSettingsStrings(content::WebUIDataSource* html_source,
+@@ -2080,6 +2084,14 @@ void AddSiteSettingsStrings(content::WebUIDataSource* html_source,
       IDS_SETTINGS_SITE_SETTINGS_PROTECTED_CONTENT_IDENTIFIERS},
      {"siteSettingsProtectedContentEnable",
       IDS_SETTINGS_SITE_SETTINGS_PROTECTED_CONTENT_ENABLE},
 +    {"siteSettingsAutoplay",
 +     IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY},
++    {"siteSettingsCategoryAutoplay",
++     IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY},
++    {"siteSettingsAutoplayAsk",
++     IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY_ASK},
++    {"siteSettingsAutoplayAskRecommended",
++     IDS_SETTINGS_SITE_SETTINGS_AUTOPLAY_ASK_RECOMMENDED},
  #if defined(OS_CHROMEOS) || defined(OS_WIN)
      {"siteSettingsProtectedContentIdentifiersExplanation",
       IDS_SETTINGS_SITE_SETTINGS_PROTECTED_CONTENT_IDENTIFIERS_EXPLANATION},

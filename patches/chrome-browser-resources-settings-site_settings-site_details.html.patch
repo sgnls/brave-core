@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/resources/settings/site_settings/site_details.html b/chrome/browser/resources/settings/site_settings/site_details.html
-index 1a8a1bf055e2774c0f57a3c609aa9482d4c7b778..615f99b2c794e7e2eefca388f2680d65ce6100fa 100644
+index 1a8a1bf055e2774c0f57a3c609aa9482d4c7b778..cbcdbcc4ab7141bbcfca7bdf41681900498d0440 100644
 --- a/chrome/browser/resources/settings/site_settings/site_details.html
 +++ b/chrome/browser/resources/settings/site_settings/site_details.html
 @@ -148,6 +148,11 @@
@@ -8,7 +8,7 @@ index 1a8a1bf055e2774c0f57a3c609aa9482d4c7b778..615f99b2c794e7e2eefca388f2680d65
        </site-details-permission>
 +      <site-details-permission
 +          category="{{ContentSettingsTypes.AUTOPLAY}}"
-+          icon="settings:autoplay" id="autoplay"
++          icon="cr:extension" id="autoplay"
 +          label="$i18n{siteSettingsAutoplay}">
 +      </site-details-permission>
  <if expr="chromeos">
