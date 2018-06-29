@@ -28,9 +28,7 @@ void AutoplayPermissionContext::UpdateTabContext(
   if (!content_settings)
     return;
 
-  if (allowed) {
-    content_settings->OnContentAllowed(CONTENT_SETTINGS_TYPE_AUTOPLAY);
-  } else {
+  if (!allowed) {
     content_settings->OnContentBlocked(CONTENT_SETTINGS_TYPE_AUTOPLAY);
   }
 }
