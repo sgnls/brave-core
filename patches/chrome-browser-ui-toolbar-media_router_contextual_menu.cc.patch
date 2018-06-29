@@ -1,0 +1,23 @@
+diff --git a/chrome/browser/ui/toolbar/media_router_contextual_menu.cc b/chrome/browser/ui/toolbar/media_router_contextual_menu.cc
+index 46b5dd8c2b246bb830ce3ae38e977d94d051d64e..29c300491aeb6c5ff4f5adb181bd77954e6339c4 100644
+--- a/chrome/browser/ui/toolbar/media_router_contextual_menu.cc
++++ b/chrome/browser/ui/toolbar/media_router_contextual_menu.cc
+@@ -135,12 +135,18 @@ bool MediaRouterContextualMenu::IsCommandIdVisible(int command_id) const {
+ 
+ void MediaRouterContextualMenu::ExecuteCommand(int command_id,
+                                                int event_flags) {
++#if defined(BRAVE_CHROMIUM_BUILD)
++  const char kAboutPageUrl[] = "https://community.brave.com/";
++  const char kCastHelpCenterPageUrl[] = "https://community.brave.com/";
++  const char kCastLearnMorePageUrl[] = "https://community.brave.com/";
++#else
+   const char kAboutPageUrl[] =
+       "https://www.google.com/chrome/devices/chromecast/";
+   const char kCastHelpCenterPageUrl[] =
+       "https://support.google.com/chromecast/topic/3447927";
+   const char kCastLearnMorePageUrl[] =
+       "https://support.google.com/chromecast/answer/2998338";
++#endif
+ 
+   PrefService* pref_service;
+   switch (command_id) {

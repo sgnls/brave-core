@@ -1,0 +1,40 @@
+diff --git a/chrome/browser/ui/webui/media_router/media_router_webui_message_handler.cc b/chrome/browser/ui/webui/media_router/media_router_webui_message_handler.cc
+index bcc329103d17a7716fddf5dc957e7e9345915ba2..6737df991dbc589a3f8343f5e46dbce2ffd65382 100644
+--- a/chrome/browser/ui/webui/media_router/media_router_webui_message_handler.cc
++++ b/chrome/browser/ui/webui/media_router/media_router_webui_message_handler.cc
+@@ -36,8 +36,12 @@ namespace media_router {
+ 
+ namespace {
+ 
++#if defined(BRAVE_CHROMIUM_BUILD)
++const char kCastLearnMorePageUrl[] = "https://community.brave.com/";
++#else
+ const char kCastLearnMorePageUrl[] =
+     "https://www.google.com/chrome/devices/chromecast/learn.html";
++#endif
+ const char kHelpPageUrlPrefix[] =
+     "https://support.google.com/chromecast/answer/%d";
+ 
+@@ -226,6 +230,9 @@ bool IsValidIssueActionTypeNum(int issue_action_type_num) {
+ // Composes a "learn more" URL. The URL depends on template arguments in |args|.
+ // Returns an empty string if |args| is invalid.
+ std::string GetLearnMoreUrl(const base::DictionaryValue* args) {
++#if defined(BRAVE_CHROMIUM_BUILD)
++  return kCastLearnMorePageUrl;
++#endif
+   // TODO(imcheng): The template arguments for determining the learn more URL
+   // should come from the Issue object in the browser, not from WebUI.
+   int help_page_id = -1;
+@@ -527,8 +534,12 @@ void MediaRouterWebUIMessageHandler::OnRequestInitialData(
+   base::DictionaryValue initial_data;
+ 
+   // "No Cast devices found?" Chromecast help center page.
++#if defined(BRAVE_CHROMIUM_BUILD)
++  initial_data.SetString("deviceMissingUrl", kCastLearnMorePageUrl);
++#else
+   initial_data.SetString("deviceMissingUrl",
+                          base::StringPrintf(kHelpPageUrlPrefix, 3249268));
++#endif
+ 
+   std::unique_ptr<base::DictionaryValue> sinks_and_identity(
+       SinksAndIdentityToValue(media_router_ui_->GetEnabledSinks(),
