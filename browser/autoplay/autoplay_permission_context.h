@@ -18,6 +18,12 @@ class AutoplayPermissionContext : public PermissionContextBase {
   void UpdateTabContext(const PermissionRequestID& id,
                         const GURL& requesting_frame,
                         bool allowed) override;
+  void NotifyPermissionSet(const PermissionRequestID& id,
+                           const GURL& requesting_origin,
+                           const GURL& embedding_origin,
+                           const BrowserPermissionCallback& callback,
+                           bool persist,
+                           ContentSetting content_setting) override;
   bool IsRestrictedToSecureOrigins() const override;
 
   DISALLOW_COPY_AND_ASSIGN(AutoplayPermissionContext);

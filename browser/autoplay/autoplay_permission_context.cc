@@ -33,6 +33,26 @@ void AutoplayPermissionContext::UpdateTabContext(
   }
 }
 
+void AutoplayPermissionContext::NotifyPermissionSet(
+    const PermissionRequestID& id,
+    const GURL& requesting_origin,
+    const GURL& embedding_origin,
+    const BrowserPermissionCallback& callback,
+    bool persist,
+    ContentSetting content_setting) {
+  PermissionContextBase::NotifyPermissionSet(id, requesting_origin,
+                                             embedding_origin, callback,
+                                             persist, content_setting);
+  // Ask -> Allow
+  if (persist && content_setting == CONTENT_SETTING_ALLOW) {
+    content::WebContents* web_contents =
+      content::WebContents::FromRenderFrameHost(
+        content::RenderFrameHost::FromID(id.render_process_id(),
+                                         id.render_frame_id()));
+     web_contents->GetController().Reload(content::ReloadType::NORMAL, false);
+  }
+}
+
 bool AutoplayPermissionContext::IsRestrictedToSecureOrigins() const {
   return true;
 }
