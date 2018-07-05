@@ -15,7 +15,7 @@ namespace blink {
     const CredentialRequestOptions& options) {
       ScriptPromise::InternalResolver resolver(script_state);
       ScriptPromise promise = resolver.Promise();
-      v8::Isolate* isolate = V8PerIsolateData::MainThreadIsolate();
+      v8::Isolate* isolate = script_state->GetIsolate();
       resolver.Resolve(v8::Null(isolate));
       return promise;
   }
@@ -24,7 +24,7 @@ namespace blink {
                                           Credential* credential) {
     ScriptPromise::InternalResolver resolver(script_state);
     ScriptPromise promise = resolver.Promise();
-    v8::Isolate* isolate = V8PerIsolateData::MainThreadIsolate();
+    v8::Isolate* isolate = script_state->GetIsolate();
     resolver.Resolve(v8::Null(isolate));
     return promise;
   }
@@ -33,7 +33,7 @@ namespace blink {
     ScriptState* script_state) {
     ScriptPromise::InternalResolver resolver(script_state);
     ScriptPromise promise = resolver.Promise();
-    v8::Isolate* isolate = V8PerIsolateData::MainThreadIsolate();
+    v8::Isolate* isolate = script_state->GetIsolate();
     resolver.Resolve(v8::Null(isolate));
     return promise;
   }
@@ -48,7 +48,7 @@ namespace blink {
     ExceptionState& exception_state) {
       ScriptPromise::InternalResolver resolver(script_state);
       ScriptPromise promise = resolver.Promise();
-      v8::Isolate* isolate = V8PerIsolateData::MainThreadIsolate();
+      v8::Isolate* isolate = script_state->GetIsolate();
       resolver.Resolve(v8::Null(isolate));
       return promise;
   }

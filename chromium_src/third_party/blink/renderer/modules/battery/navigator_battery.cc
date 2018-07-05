@@ -7,8 +7,8 @@
 namespace blink {
   ScriptPromise NavigatorBattery::getBattery(ScriptState* script_state,
                                            Navigator& navigator) {
-    v8::Isolate* isolate = V8PerIsolateData::MainThreadIsolate();
-    return blink::ScriptPromise::Reject(script_state, 
+    v8::Isolate* isolate = script_state->GetIsolate();
+    return blink::ScriptPromise::Reject(script_state,
            v8::Exception::TypeError(gin::StringToV8(isolate, "This api has been disabled.")));
   }
-} // namespace blink 
+} // namespace blink
