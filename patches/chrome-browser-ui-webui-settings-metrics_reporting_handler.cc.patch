@@ -1,0 +1,13 @@
+diff --git a/chrome/browser/ui/webui/settings/metrics_reporting_handler.cc b/chrome/browser/ui/webui/settings/metrics_reporting_handler.cc
+index 7d8fb6922a81f4758c3cebbc0d06555647d56a66..dc13086ac5a5c66edf748900f6bcbfc68316b51f 100644
+--- a/chrome/browser/ui/webui/settings/metrics_reporting_handler.cc
++++ b/chrome/browser/ui/webui/settings/metrics_reporting_handler.cc
+@@ -2,7 +2,7 @@
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
+ 
+-#if defined(GOOGLE_CHROME_BUILD) && !defined(OS_CHROMEOS)
++#if (defined(GOOGLE_CHROME_BUILD) || (defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD))) && !defined(OS_CHROMEOS)
+ 
+ #include "chrome/browser/ui/webui/settings/metrics_reporting_handler.h"
+ 

@@ -1,0 +1,13 @@
+diff --git a/chrome/browser/resources/settings/privacy_page/privacy_page.html b/chrome/browser/resources/settings/privacy_page/privacy_page.html
+index c938b42ff11691e4e5e915e7c4d6f36de58d82cb..2dde6c32cf91eebd7084fe3c3e6470648bedd1a2 100644
+--- a/chrome/browser/resources/settings/privacy_page/privacy_page.html
++++ b/chrome/browser/resources/settings/privacy_page/privacy_page.html
+@@ -89,7 +89,7 @@
+         <settings-toggle-button pref="{{prefs.safebrowsing.enabled}}"
+             label="$i18n{safeBrowsingEnableProtection}">
+         </settings-toggle-button>
+-<if expr="_google_chrome">
++<if expr="_chromium">
+ <if expr="chromeos">
+         <settings-toggle-button pref="{{prefs.cros.metrics.reportingEnabled}}"
+             label="$i18n{enableLogging}">

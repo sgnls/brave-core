@@ -1,0 +1,22 @@
+diff --git a/components/crash/content/app/crashpad_mac.mm b/components/crash/content/app/crashpad_mac.mm
+index eb82f44053cec67f7e98c798d8e1e58228aa7fe6..3e6189b8dd2106d79059268b1fc2d445ff93da92 100644
+--- a/components/crash/content/app/crashpad_mac.mm
++++ b/components/crash/content/app/crashpad_mac.mm
+@@ -55,6 +55,8 @@ base::FilePath PlatformCrashpadInitialization(bool initial_client,
+       // Only allow the possibility of report upload in official builds. This
+       // crash server won't have symbols for any other build types.
+       std::string url = "https://clients2.google.com/cr/report";
++#elif defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD)
++      std::string url = "https://laptop-updates.brave.com/1/bc-crashes";
+ #else
+       std::string url;
+ #endif
+@@ -67,7 +69,7 @@ base::FilePath PlatformCrashpadInitialization(bool initial_client,
+       process_annotations["prod"] =
+           base::SysNSStringToUTF8(product).append("_Mac");
+ 
+-#if defined(GOOGLE_CHROME_BUILD)
++#if defined(GOOGLE_CHROME_BUILD) || (defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD))
+       // Empty means stable.
+       const bool allow_empty_channel = true;
+ #else

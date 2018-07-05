@@ -1,0 +1,22 @@
+diff --git a/components/crash/content/app/crashpad_linux.cc b/components/crash/content/app/crashpad_linux.cc
+index 05767fe2a26e16a0152ba419ed38a944f919cbde..47c474ed3221583973d16456443902c83e133ae4 100644
+--- a/components/crash/content/app/crashpad_linux.cc
++++ b/components/crash/content/app/crashpad_linux.cc
+@@ -143,6 +143,8 @@ bool BuildHandlerArgs(base::FilePath* handler_path,
+ 
+ #if defined(GOOGLE_CHROME_BUILD) && defined(OFFICIAL_BUILD)
+   *url = "https://clients2.google.com/cr/report";
++#elif defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD)
++  *url = "https://laptop-updates.brave.com/1/bc-crashes";
+ #else
+   *url = std::string();
+ #endif
+@@ -155,7 +157,7 @@ bool BuildHandlerArgs(base::FilePath* handler_path,
+   (*process_annotations)["prod"] = std::string(product_name);
+   (*process_annotations)["ver"] = std::string(product_version);
+ 
+-#if defined(GOOGLE_CHROME_BUILD)
++#if defined(GOOGLE_CHROME_BUILD) || (defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD))
+   // Empty means stable.
+   const bool allow_empty_channel = true;
+ #else

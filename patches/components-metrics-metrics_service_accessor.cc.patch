@@ -1,0 +1,13 @@
+diff --git a/components/metrics/metrics_service_accessor.cc b/components/metrics/metrics_service_accessor.cc
+index f00d2e8523f6f80aedd0dedcf7c8d2bc2985a0f1..7b457eda0dbdf725d37032a981476ef50f1c3673 100644
+--- a/components/metrics/metrics_service_accessor.cc
++++ b/components/metrics/metrics_service_accessor.cc
+@@ -30,7 +30,7 @@ bool IsMetricsReportingEnabledForOfficialBuild(PrefService* pref_service) {
+ // static
+ bool MetricsServiceAccessor::IsMetricsReportingEnabled(
+     PrefService* pref_service) {
+-#if defined(GOOGLE_CHROME_BUILD)
++#if defined(GOOGLE_CHROME_BUILD) || (defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD))
+   return IsMetricsReportingEnabledForOfficialBuild(pref_service);
+ #else
+   // In non-official builds, disable metrics reporting completely.
