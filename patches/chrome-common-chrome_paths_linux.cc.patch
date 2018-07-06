@@ -13,7 +13,7 @@ index fc47bd3f12418fdaed879e0b485bfc7cb572a6e8..9d7f74be49456b05c593ae2df4831c75
  namespace chrome {
  
  using base::nix::GetXDGDirectory;
-@@ -87,10 +91,18 @@ bool GetDefaultUserDataDirectory(base::FilePath* result) {
+@@ -87,11 +91,19 @@ bool GetDefaultUserDataDirectory(base::FilePath* result) {
          GetXDGDirectory(env.get(), kXdgConfigHomeEnvVar, kDotConfigDir);
    }
  
@@ -28,7 +28,8 @@ index fc47bd3f12418fdaed879e0b485bfc7cb572a6e8..9d7f74be49456b05c593ae2df4831c75
    *result = config_dir.Append("google-chrome" + GetChannelSuffixForDataDir());
  #else
    *result = config_dir.Append("chromium");
-+#endif
  #endif
++#endif
    return true;
  }
+ 

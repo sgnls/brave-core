@@ -6,6 +6,8 @@
 
 #include "brave/common/webui_url_constants.h"
 #include "brave/browser/ui/webui/basic_ui.h"
+#include "brave/browser/ui/webui/sync/sync_ui.h"
+#include "brave/browser/ui/webui/sync/sync_js_layer.h"
 #include "brave/browser/ui/webui/brave_welcome_ui.h"
 #include "chrome/common/url_constants.h"
 #include "components/grit/brave_components_resources.h"
@@ -35,7 +37,13 @@ WebUIController* NewWebUI<BraveWelcomeUI>(WebUI* web_ui, const GURL& url) {
 template<>
 WebUIController* NewWebUI<BasicUI>(WebUI* web_ui, const GURL& url) {
   auto host = url.host_piece();
-  if (host == kPaymentsHost) {
+  if (host == kBraveSyncLibHost) {
+    return new SyncJsLayer(web_ui, url.host(), kBraveSyncLibJS,
+        IDR_BRAVE_SYNC_LIB_JS, IDR_BRAVE_SYNC_LIB_HTML);
+  } else if (host == kBraveUISyncHost) {
+    return new SyncUI(web_ui, url.host(), kBraveSyncJS,
+        IDR_BRAVE_SYNC_JS, IDR_BRAVE_SYNC_HTML);
+  } else if (host == kPaymentsHost) {
     return new BasicUI(web_ui, url.host(), kPaymentsJS,
         IDR_BRAVE_PAYMENTS_JS, IDR_BRAVE_PAYMENTS_HTML);
   } else if (host ==  chrome::kChromeUINewTabHost) {
@@ -51,7 +59,10 @@ WebUIController* NewWebUI<BasicUI>(WebUI* web_ui, const GURL& url) {
 WebUIFactoryFunction GetWebUIFactoryFunction(WebUI* web_ui,
                                              const GURL& url) {
   if (url.host_piece() == kPaymentsHost ||
-      url.host_piece() ==  chrome::kChromeUINewTabHost) {
+      url.host_piece() ==  chrome::kChromeUINewTabHost ||
+      url.host_piece() == kBraveSyncLibHost ||  //TODO, AB: wrong place
+      url.host_piece() == kBraveUISyncHost
+    ) {
     return &NewWebUI<BasicUI>;
   } else if (url.spec() == kWelcomeRemoteURL) {
     return &NewWebUI<BraveWelcomeUI>;
@@ -96,4 +107,3 @@ BraveWebUIControllerFactory::BraveWebUIControllerFactory() {
 
 BraveWebUIControllerFactory::~BraveWebUIControllerFactory() {
 }
-

@@ -10,6 +10,8 @@ deps = {
   "vendor/boto": "https://github.com/boto/boto@f7574aa6cc2c819430c1f05e9a1a1a666ef8169b",
   "vendor/python-patch": "https://github.com/svn2github/python-patch@a336a458016ced89aba90dfc3f4c8222ae3b1403",
   "vendor/sparkle": "https://github.com/brave/Sparkle.git@c0759cce415d7c0feae45005c8a013b1898711f0",
+  "vendor/brave-sync": "https://github.com/brave/sync.git@75c1bb10c4a54275de4fb10afd9f204cc07284a8",
+  "vendor/brave-crypto": "https://github.com/brave/crypto@64e4e9ed4f0e06f44102b5970b42e8542c4662db",
 }
 
 hooks = [

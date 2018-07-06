@@ -17,6 +17,7 @@
 #include "content/public/common/bindings_policy.h"
 #include "ui/base/resource/resource_bundle.h"
 
+  #include "components/grit/brave_components_resources.h"
 
 using content::WebContents;
 using content::WebUIMessageHandler;
@@ -28,6 +29,11 @@ content::WebUIDataSource* CreateBasicUIHTMLSource(Profile* profile,
                                                   const std::string& js_file,
                                                   int js_resource_id,
                                                   int html_resource_id) {
+LOG(ERROR) << "TAGAB CreateBasicUIHTMLSource name="<<name;
+LOG(ERROR) << "TAGAB CreateBasicUIHTMLSource html_resource_id="<<html_resource_id;
+LOG(ERROR) << "TAGAB CreateBasicUIHTMLSource js_file="<<js_file;
+LOG(ERROR) << "TAGAB CreateBasicUIHTMLSource js_resource_id="<<js_resource_id;
+
   content::WebUIDataSource* source =
       content::WebUIDataSource::Create(name);
 
@@ -36,6 +42,16 @@ content::WebUIDataSource* CreateBasicUIHTMLSource(Profile* profile,
   source->SetJsonPath("strings.js");
   source->SetDefaultResource(html_resource_id);
   source->AddResourcePath(js_file, js_resource_id);
+
+//TODO, AB: this is a wrong place
+if (name=="bravesynclib") {
+  source->AddResourcePath("bundle.js", IDR_BRAVE_SYNC_LIB_JS_BUNDLE);
+  source->AddResourcePath("crypto.js", IDR_BRAVE_SYNC_LIB_JS_CRYPTO);
+}
+if (name=="bravesync") {
+  source->AddResourcePath("qrcode.js", IDR_BRAVE_SYNC_QR);
+}
+
   return source;
 }
 
@@ -101,7 +117,7 @@ void BasicUI::RenderFrameCreated(content::RenderFrameHost* render_frame_host) {
 void BasicUI::OnPreferenceChanged() {
   if (0 != (web_ui()->GetBindings() & content::BINDINGS_POLICY_WEB_UI)) {
     CustomizeNewTabWebUIProperties(web_ui());
+LOG(ERROR) << "TAGAB BasicUI::OnPreferenceChanged, call brave_new_tab.statsUpdated"; // TODO, AB: workaround create brave_new_tab obj in js
     web_ui()->CallJavascriptFunctionUnsafe("brave_new_tab.statsUpdated");
   }
 }
-

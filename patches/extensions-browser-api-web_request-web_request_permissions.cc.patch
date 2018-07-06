@@ -1,8 +1,8 @@
 diff --git a/extensions/browser/api/web_request/web_request_permissions.cc b/extensions/browser/api/web_request/web_request_permissions.cc
-index 426bdc336021722db43af2c984ae5675a878f7fd..4315e66ff33d4aecb6610ed2125aed70e66449b2 100644
+index 426bdc336021722db43af2c984ae5675a878f7fd..fb7af0c1b0a0ae158d6ce2a875813306d76b1868 100644
 --- a/extensions/browser/api/web_request/web_request_permissions.cc
 +++ b/extensions/browser/api/web_request/web_request_permissions.cc
-@@ -87,6 +87,11 @@ bool IsWebUIAllowedToMakeNetworkRequests(const url::Origin& origin) {
+@@ -87,6 +87,12 @@ bool IsWebUIAllowedToMakeNetworkRequests(const url::Origin& origin) {
    return
        // https://crbug.com/829414
        origin.host() == "print" ||
@@ -10,6 +10,7 @@ index 426bdc336021722db43af2c984ae5675a878f7fd..4315e66ff33d4aecb6610ed2125aed70
 +      // https://github.com/brave/brave-browser/issues/273
 +      origin.host() == "newtab" ||
 +      origin.host() == "brave.com" ||
++      origin.host() == "bravesynclib" ||
 +#endif
        // https://crbug.com/831812
        origin.host() == "sync-confirmation" ||

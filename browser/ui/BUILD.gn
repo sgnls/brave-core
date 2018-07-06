@@ -29,6 +29,12 @@ source_set("ui") {
     "webui/brave_welcome_ui.h",
     "webui/new_tab_html_source.cc",
     "webui/new_tab_html_source.h",
+    "webui/sync/sync_ui.cc",
+    "webui/sync/sync_ui.h",
+    "webui/sync/i_sync_ui.h",
+    "webui/sync/isync_js_layer.h",
+    "webui/sync/sync_js_layer.cc",
+    "webui/sync/sync_js_layer.h",
   ]
 
   if (is_mac && !mac_views_browser) {

@@ -79,6 +79,28 @@
       <include name="IDR_BRAVE_PAYMENTS_HTML" file="../brave_payments_ui/brave_payments.html" type="BINDATA" />
       <include name="IDR_BRAVE_PAYMENTS_JS" file="${root_gen_dir}/brave/brave_payments.bundle.js" type="BINDATA" use_base_dir="false" />
 
+      <!-- WebUI sync resources -->
+      <include name="IDR_BRAVE_SYNC_HTML" file="../brave_sync_ui/brave_sync.html" type="BINDATA" />
+      <include name="IDR_BRAVE_SYNC_JS" file="${root_gen_dir}/brave/brave_sync.bundle.js" type="BINDATA" use_base_dir="false" />
+
+      <!-- Sync lib resources -->
+      <include name="IDR_BRAVE_SYNC_LIB_HTML" file="../brave_sync_ui/brave_sync_lib.html" type="BINDATA" />
+      <!-- <include name="IDR_BRAVE_SYNC_LIB_JS" file="${root_gen_dir}/brave/brave_sync_lib.bundle.js" type="BINDATA" use_base_dir="false" /> -->
+      <include name="IDR_BRAVE_SYNC_LIB_JS" file="../brave_sync_ui/brave_sync_lib.js" type="BINDATA" />
+<!--
+<include name="IDR_BRAVE_SYNC_LIB_JS_BUNDLE" file="/home/alexey/Projects/forkAB19/browser-android-tabs/src/braveSync/bundles/bundle.js" type="BINDATA" use_base_dir="false" />
+<include name="IDR_BRAVE_SYNC_LIB_JS_CRYPTO" file="/home/alexey/Projects/forkAB19/browser-android-tabs/src/brave-crypto/browser/crypto.js" type="BINDATA" use_base_dir="false" />
+-->
+
+<!--
+<include name="IDR_BRAVE_SYNC_LIB_JS_BUNDLE" file="../../vendor/brave-sync/bundles/bundle.js" type="BINDATA" /> -->
+<include name="IDR_BRAVE_SYNC_LIB_JS_BUNDLE" file="$root_gen_dir/brave-sync/bundles/bundle.js" type="BINDATA" use_base_dir="false" />
+<!--
+<include name="IDR_BRAVE_SYNC_LIB_JS_CRYPTO" file="../../vendor/brave-crypto/browser/crypto.js" type="BINDATA" /> -->
+<include name="IDR_BRAVE_SYNC_LIB_JS_CRYPTO" file="$root_gen_dir/brave-crypto/browser/crypto.js" type="BINDATA" use_base_dir="false" />
+<include name="IDR_BRAVE_SYNC_QR" file="../../node_modules/qrcode-generator/qrcode.js" type="BINDATA" />
+
+
       <!-- WebUI newtab resources -->
       <include name="IDR_BRAVE_NEW_TAB_HTML" file="../brave_new_tab_ui/brave_new_tab.html" type="BINDATA" />
       <include name="IDR_BRAVE_NEW_TAB_JS" file="${root_gen_dir}/brave/brave_new_tab.bundle.js" type="BINDATA" use_base_dir="false" />

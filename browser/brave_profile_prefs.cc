@@ -11,11 +11,13 @@
 #include "components/content_settings/core/common/pref_names.h"
 #include "components/pref_registry/pref_registry_syncable.h"
 #include "components/signin/core/browser/signin_pref_names.h"
+#include "brave/components/brave_sync/brave_sync_profile_prefs.h"
 
 namespace brave {
 
 void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   brave_shields::BraveShieldsWebContentsObserver::RegisterProfilePrefs(registry);
+  bravesync::prefs::BraveSyncPrefs::RegisterProfilePrefs(registry);
 
   registry->RegisterBooleanPref(kWidevineOptedIn, false);
 

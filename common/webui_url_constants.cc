@@ -9,3 +9,11 @@ const char kPaymentsJS[] = "brave_payments.js";
 const char kBraveNewTabJS[] = "brave_new_tab.js";
 const char kWelcomeRemoteURL[] = "https://brave.com/welcome/";
 const char kBraveUIPaymentsURL[] = "chrome://payments";
+
+const char kBraveUISyncURL[] = "chrome://bravesync";
+const char kBraveUISyncHost[] = "bravesync";
+const char kBraveSyncJS[] = "brave_sync.js";
+
+const char kBraveSyncLibURL[] = "chrome://bravesynclib";
+const char kBraveSyncLibHost[] = "bravesynclib";
+const char kBraveSyncLibJS[] = "brave_sync_lib.js";

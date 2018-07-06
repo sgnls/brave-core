@@ -1,0 +1,22 @@
+diff --git a/components/browser_sync/profile_sync_service.h b/components/browser_sync/profile_sync_service.h
+index 7cc425426470cf1a9919158c25c788b0c1b5290a..52abd4247f23da8df612bbf6bb2153e73e5b93cb 100644
+--- a/components/browser_sync/profile_sync_service.h
++++ b/components/browser_sync/profile_sync_service.h
+@@ -54,6 +54,8 @@
+ #include "net/base/backoff_entry.h"
+ #include "url/gurl.h"
+ 
++#include "brave/components/sync/driver/brave_sync_service_base.h"
++
+ class ProfileOAuth2TokenService;
+ class SigninManagerWrapper;
+ 
+@@ -164,7 +166,7 @@ namespace browser_sync {
+ //   Once first setup has completed and there are no outstanding
+ //   setup-in-progress handles, CanConfigureDataTypes() will return true and
+ //   datatype configuration can begin.
+-class ProfileSyncService : public syncer::SyncServiceBase,
++class ProfileSyncService : public syncer::BraveSyncServiceBase,
+                            public syncer::SyncPrefObserver,
+                            public syncer::DataTypeManagerObserver,
+                            public syncer::UnrecoverableErrorHandler,

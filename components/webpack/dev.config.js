@@ -5,7 +5,8 @@ module.exports = {
   devtool: '#inline-source-map',
   entry: {
     brave_new_tab: path.join(__dirname, '../brave_new_tab_ui/brave_new_tab'),
-    brave_payments: path.join(__dirname, '../brave_payments_ui/brave_payments')
+    brave_payments: path.join(__dirname, '../brave_payments_ui/brave_payments'),
+    brave_sync: path.join(__dirname, '../brave_sync_ui/brave_sync')
   },
   output: {
     path: path.join(__dirname, '..', '..', '..', process.env.TARGET_GEN_DIR, 'brave'),

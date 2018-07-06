@@ -19,4 +19,8 @@ void BraveAppMenuModel::InsertBraveMenuItems() {
       GetIndexOfCommandId(IDC_SHOW_DOWNLOADS),
       IDC_SHOW_BRAVE_PAYMENTS,
       IDS_SHOW_BRAVE_PAYMENTS);
+  InsertItemWithStringIdAt(
+      GetIndexOfCommandId(IDC_SHOW_BRAVE_PAYMENTS),
+      IDC_SHOW_BRAVE_SYNC,
+      IDS_SHOW_BRAVE_SYNC);
 }

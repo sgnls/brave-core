@@ -10,6 +10,8 @@ class Browser;
 namespace brave {
 
 void ShowBravePayments(Browser* browser);
+void ShowBraveSync(Browser* browser);
+void LoadBraveSyncJsLib(Browser* browser);
 
 }  // namespace brave
 

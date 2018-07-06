@@ -70,6 +70,11 @@ bool BraveBrowserCommandController::UpdateCommandEnabled(int id, bool state) {
 
 void BraveBrowserCommandController::InitBraveCommandState() {
   UpdateCommandForBravePayments();
+  UpdateCommandForBraveSync();
+}
+
+void BraveBrowserCommandController::UpdateCommandForBraveSync() {
+  UpdateCommandEnabled(IDC_SHOW_BRAVE_SYNC, true);
 }
 
 void BraveBrowserCommandController::UpdateCommandForBravePayments() {
@@ -90,6 +95,9 @@ bool BraveBrowserCommandController::ExecuteBraveCommandWithDisposition(
   switch (id) {
     case IDC_SHOW_BRAVE_PAYMENTS:
       brave::ShowBravePayments(browser_);
+      break;
+    case IDC_SHOW_BRAVE_SYNC:
+      brave::ShowBraveSync(browser_);
       break;
 
     default:

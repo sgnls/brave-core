@@ -8,6 +8,33 @@
 #include "chrome/browser/ui/singleton_tabs.h"
 #include "url/gurl.h"
 
+#include "base/debug/stack_trace.h"
+
+//////////////////
+//TODO, AB: move to separate file
+#include "content/public/browser/browser_thread.h"
+void DisplayThreadInfo();
+void DisplayThreadInfo() {
+  using content::BrowserThread;
+  LOG(ERROR) << "TAGAB IsThreadInitialized(UI)=" << BrowserThread::IsThreadInitialized(BrowserThread::UI);
+  LOG(ERROR) << "TAGAB IsThreadInitialized(IO)=" << BrowserThread::IsThreadInitialized(BrowserThread::IO);
+  BrowserThread::ID id = BrowserThread::ID_COUNT;
+  bool bKnownThread =  BrowserThread::GetCurrentThreadIdentifier(&id);
+  if (bKnownThread) {
+    if (id == BrowserThread::UI) {
+      LOG(ERROR) << "TAGAB in UI THREAD";
+    } else if (id == BrowserThread::IO){
+      LOG(ERROR) << "TAGAB in IO THREAD";
+    } else {
+      LOG(ERROR) << "TAGAB in ??? THREAD";
+    }
+  } else {
+    LOG(ERROR) << "TAGAB UNKNOWN THREAD";
+  }
+}
+//////////////////
+
+
 namespace brave {
 
 void ShowBravePayments(Browser* browser) {
@@ -15,5 +42,23 @@ void ShowBravePayments(Browser* browser) {
       browser,
       GetSingletonTabNavigateParams(browser, GURL(kBraveUIPaymentsURL)));
 }
+
+void ShowBraveSync(Browser* browser) {
+LOG(ERROR) << "TAGAB ShowBraveSync";
+DisplayThreadInfo();
+   ShowSingletonTabOverwritingNTP(
+       browser,
+      GetSingletonTabNavigateParams(browser, GURL(kBraveUISyncURL)));
+      //GetSingletonTabNavigateParams(browser, GURL(kBraveSyncLibURL)));
+}
+
+void LoadBraveSyncJsLib(Browser* browser) {
+LOG(ERROR) << "TAGAB LoadBraveSyncJsLib";
+DisplayThreadInfo();
+   ShowSingletonTabOverwritingNTP(
+       browser,
+      GetSingletonTabNavigateParams(browser, GURL(kBraveSyncLibURL)));
+}
+
 
 }  // namespace brave
