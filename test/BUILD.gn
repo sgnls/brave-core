@@ -121,6 +121,7 @@ static_library("browser_tests_runner") {
 
 test("brave_browser_tests") {
   sources = [
+    "//brave/browser/autoplay/autoplay_permission_context_browsertest.cc",
     "//brave/browser/brave_content_browser_client_browsertest.cc",
     "//brave/browser/brave_profile_prefs_browsertest.cc",
     "//brave/browser/brave_resources_browsertest.cc",
