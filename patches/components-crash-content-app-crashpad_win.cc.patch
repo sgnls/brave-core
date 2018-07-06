@@ -1,5 +1,5 @@
 diff --git a/components/crash/content/app/crashpad_win.cc b/components/crash/content/app/crashpad_win.cc
-index 8b0edef1b59403f819e3c1b4d3b378f849c68f26..a6e691f58c2925daa5a6a82c58716b7caebe4855 100644
+index 8b0edef1b59403f819e3c1b4d3b378f849c68f26..3db3b80b9d1f184714570aff5ec4b86cf6bc29fa 100644
 --- a/components/crash/content/app/crashpad_win.cc
 +++ b/components/crash/content/app/crashpad_win.cc
 @@ -36,7 +36,7 @@ void GetPlatformCrashpadAnnotations(
@@ -11,13 +11,12 @@ index 8b0edef1b59403f819e3c1b4d3b378f849c68f26..a6e691f58c2925daa5a6a82c58716b7c
    // Empty means stable.
    const bool allow_empty_channel = true;
  #else
-@@ -82,6 +82,9 @@ base::FilePath PlatformCrashpadInitialization(bool initial_client,
+@@ -82,6 +82,8 @@ base::FilePath PlatformCrashpadInitialization(bool initial_client,
  
  #if defined(GOOGLE_CHROME_BUILD)
      std::string url = "https://clients2.google.com/cr/report";
 +#elif defined(BRAVE_CHROMIUM_BUILD) && defined(OFFICIAL_BUILD)
-+    // std::string url = "https://laptop-updates.brave.com/1/bc-crashes";
-+    std::string url = "http://localhost:8192/1/bc-crashes";
++    std::string url = "https://laptop-updates.brave.com/1/bc-crashes";
  #else
      std::string url;
  #endif
