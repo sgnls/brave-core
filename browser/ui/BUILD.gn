@@ -19,6 +19,8 @@ source_set("ui") {
     "content_settings/brave_widevine_content_setting_bubble_model.h",
     "toolbar/brave_app_menu_model.cc",
     "toolbar/brave_app_menu_model.h",
+    "views/brave_views_delegate.cc",
+    "views/brave_views_delegate.h",
     "views/importer/brave_import_lock_dialog_view.cc",
     "views/importer/brave_import_lock_dialog_view.h",
     "webui/basic_ui.cc",
@@ -61,14 +63,5 @@ source_set("ui") {
       "//chrome/browser/ui/webui/help/version_updater_win.h",
     ]
     deps += [ "//google_update" ]
-  }
-
-  if (is_linux) {
-    sources += [
-      "views/brave_browser_main_extra_parts_views_linux.cc",
-      "views/brave_browser_main_extra_parts_views_linux.h",
-      "views/brave_views_delegate_linux.cc",
-      "views/brave_views_delegate_linux.h",
-    ]
   }
 }
