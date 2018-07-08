@@ -80,7 +80,7 @@ void PaymentsServiceImpl::RunIOTask(std::unique_ptr<ledger::LedgerTaskRunner> ta
   // call task->Run() on IO thread
 }
 
-void PaymentsServiceImpl::RunIOTask(std::unique_ptr<ledger::LedgerTaskRunner> task) {
+void PaymentsServiceImpl::RunTask(std::unique_ptr<ledger::LedgerTaskRunner> task) {
   // explicitely call task->Run() on UI thread
 }
 
