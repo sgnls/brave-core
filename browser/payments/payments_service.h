@@ -23,6 +23,6 @@ class PaymentsService : public KeyedService {
   DISALLOW_COPY_AND_ASSIGN(PaymentsService);
 };
 
-}  // namespace history
+}  // namespace payments
 
 #endif  // BRAVE_BROWSER_PAYMENTS_PAYMENTS_SERVICE_

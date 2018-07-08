@@ -94,7 +94,7 @@ bool BraveBrowserCommandController::ExecuteBraveCommandWithDisposition(
 
   switch (id) {
     case IDC_SHOW_BRAVE_REWARDS:
-      brave::ShowBraveRewards(browser_);
+      brave::ShowBravePayments(browser_);
       break;
     case IDC_SHOW_BRAVE_ADBLOCK:
       brave::ShowBraveAdblock(browser_);
